@@ -11,6 +11,8 @@ class TestConnector extends Connector
      */
     public function resolveBaseUrl(): string
     {
-        return 'https://tests.saloon.dev/api';
+        $url = config('services.test.url');
+
+        return "https://$url";
     }
 }

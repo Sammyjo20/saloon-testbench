@@ -21,6 +21,14 @@ class ExampleTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_config_with_send_async()
+    {
+        $connector = new TestConnector;
+        $request = new TestRequest;
+
+        dd($connector->sendAsync($request)->wait()->status());
+    }
+
     public function test_saloon_concurrency(): void
     {
         $connector = new TestConnector;
